@@ -1,10 +1,21 @@
 formatter: markdown table
 output:
   file: README.md
-  mode: replace
+  mode: inject
 sections:
   show:
-    - header
+    - requirements
+    - providers
     - inputs
     - outputs
-    - footer
+content: |-
+  ```hcl
+  {{ include "examples/complete/main.tf" }}
+  ```
+  {{ .Requirements }}
+
+  {{ .Providers }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
